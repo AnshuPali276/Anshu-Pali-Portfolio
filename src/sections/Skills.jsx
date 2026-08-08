@@ -14,10 +14,10 @@ import {
 import { SiJavascript, SiMysql, SiTailwindcss } from "react-icons/si";
 
 const skills = [
-    {
-     name: "Java",
+  {
+    name: "Java",
     icon: <FaJava size={45} className="text-red-500" />,
-    },
+  },
   {
     name: "Python",
     icon: <FaPython size={45} className="text-yellow-400" />,
@@ -72,19 +72,22 @@ function Skills() {
   return (
     <section
       id="skills"
-      className="min-h-screen bg-slate-950 text-white py-20"
+      className="py-24 bg-gradient-to-b from-black via-slate-950 to-slate-900 text-white"
     >
       <div className="max-w-7xl mx-auto px-6">
 
+        {/* Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-5xl font-bold text-center text-cyan-400 mb-16"
+          className="text-5xl font-bold text-center mb-16"
         >
-          My Skills
+          <span className="text-cyan-400">My</span>{" "}
+          <span className="text-white">Skills</span>
         </motion.h2>
 
+        {/* Skills Grid */}
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
 
           {skills.map((skill, index) => (
@@ -94,10 +97,10 @@ function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               whileHover={{
                 scale: 1.08,
-                boxShadow: "0 0 25px rgba(34,211,238,0.5)",
+                boxShadow: "0 0 35px rgba(34,211,238,0.35)",
               }}
               transition={{ duration: 0.4 }}
-              className="bg-slate-800 border border-slate-700 rounded-2xl p-8 text-center"
+              className="bg-white/5 backdrop-blur-lg border border-cyan-500/20 rounded-2xl p-8 text-center hover:border-cyan-400 hover:bg-white/10 transition-all duration-300"
             >
               <div className="flex justify-center mb-5">
                 {skill.icon}
@@ -110,6 +113,7 @@ function Skills() {
           ))}
 
         </div>
+
       </div>
     </section>
   );

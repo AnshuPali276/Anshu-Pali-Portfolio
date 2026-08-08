@@ -1,6 +1,7 @@
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import resume from "../assets/resume/MY(Anshu_Pali)_Resume.pdf";
+import heroBg from "../assets/images/background.png";
 import {
   FaGithub,
   FaLinkedin,
@@ -15,9 +16,16 @@ function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen bg-slate-950 text-white flex items-center justify-center pt-24"
+      className="relative min-h-screen bg-cover bg-center bg-no-repeat overflow-hidden"
+      style={{
+        backgroundImage: `url(${heroBg})`,
+      }}
     >
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/65"></div>
+
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 min-h-screen grid md:grid-cols-2 gap-16 items-center">
 
         {/* Left */}
         <motion.div
@@ -29,11 +37,11 @@ function Hero() {
             👋 Hello, I'm
           </p>
 
-          <h1 className="text-5xl md:text-7xl font-bold">
+          <h1 className="text-5xl md:text-7xl font-bold text-white">
             Anshu <span className="text-cyan-400">Pali</span>
           </h1>
 
-          <div className="mt-6 text-2xl md:text-4xl font-semibold h-16">
+          <div className="mt-6 text-2xl md:text-4xl font-semibold h-16 text-white">
             <TypeAnimation
               sequence={[
                 "Android App Developer",
@@ -53,7 +61,7 @@ function Hero() {
             />
           </div>
 
-          <p className="mt-6 text-gray-400 leading-8 text-lg">
+          <p className="mt-6 text-gray-300 leading-8 text-lg">
             Passionate Computer Science Engineering student with a strong
             foundation in Python, Android Development, Frontend Development,
             Networking and Modern Web Technologies. Currently expanding my
@@ -61,7 +69,7 @@ function Hero() {
             real-world projects.
           </p>
 
-          {/* Buttons + Social Icons */}
+          {/* Buttons */}
           <div className="mt-10 flex flex-wrap items-center gap-4">
 
             <a
@@ -88,35 +96,35 @@ function Hero() {
               ⬇ Download Resume
             </a>
 
-            {/* Social Icons */}
-            <div className="flex items-center gap-5 ml-2 text-3xl">
+          </div>
 
-              <a
-                href="https://github.com/AnshuPali276"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-cyan-400 hover:scale-110 transition"
-              >
-                <FaGithub />
-              </a>
+          {/* Social Icons */}
+          <div className="flex items-center gap-6 mt-8 text-3xl text-white">
 
-              <a
-                href="https://linkedin.com/in/anshu-pali-24b933225/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-cyan-400 hover:scale-110 transition"
-              >
-                <FaLinkedin />
-              </a>
+            <a
+              href="https://github.com/AnshuPali276"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-cyan-400 hover:scale-110 transition"
+            >
+              <FaGithub />
+            </a>
 
-              <a
-                href="mailto:anshupali0676@gmail.com"
-                className="hover:text-cyan-400 hover:scale-110 transition"
-              >
-                <FaEnvelope />
-              </a>
+            <a
+              href="https://linkedin.com/in/anshu-pali-24b933225/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-cyan-400 hover:scale-110 transition"
+            >
+              <FaLinkedin />
+            </a>
 
-            </div>
+            <a
+              href="mailto:anshupali0676@gmail.com"
+              className="hover:text-cyan-400 hover:scale-110 transition"
+            >
+              <FaEnvelope />
+            </a>
 
           </div>
 
@@ -129,7 +137,8 @@ function Hero() {
           transition={{ duration: 0.8 }}
           className="relative flex justify-center"
         >
-          <div className="absolute w-80 h-80 bg-cyan-500 rounded-full blur-3xl opacity-20"></div>
+
+          <div className="absolute w-80 h-80 bg-cyan-500 rounded-full blur-3xl opacity-30"></div>
 
           <img
             src={profile}

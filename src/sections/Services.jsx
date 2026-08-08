@@ -5,6 +5,7 @@ import {
   FaReact,
   FaNetworkWired,
 } from "react-icons/fa";
+import bgImage from "../assets/images/background.png";
 
 const services = [
   {
@@ -33,16 +34,26 @@ function Services() {
   return (
     <section
       id="services"
-      className="bg-slate-900 text-white py-24"
+      className="relative py-24 text-white bg-cover bg-center bg-fixed"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+      }}
     >
-      <div className="max-w-7xl mx-auto px-6">
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/80"></div>
 
+      {/* Content */}
+      <div className="relative max-w-7xl mx-auto px-6">
+
+        {/* Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-5xl font-bold text-center text-cyan-400 mb-16"
+          transition={{ duration: 0.8 }}
+          className="text-5xl font-bold text-center mb-16"
         >
-          What I Do
+          <span className="text-cyan-400">What</span>{" "}
+          <span className="text-white">I Do</span>
         </motion.h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -50,8 +61,15 @@ function Services() {
           {services.map((item, index) => (
             <motion.div
               key={index}
-              whileHover={{ y: -10 }}
-              className="bg-slate-800 border border-slate-700 rounded-3xl p-8 text-center hover:border-cyan-400 transition"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{
+                scale: 1.05,
+                y: -8,
+                boxShadow: "0 0 35px rgba(34,211,238,0.35)",
+              }}
+              transition={{ duration: 0.4 }}
+              className="bg-white/5 backdrop-blur-lg border border-cyan-500/20 rounded-3xl p-8 text-center hover:border-cyan-400 hover:bg-white/10 transition-all duration-300"
             >
               <div className="flex justify-center mb-6">
                 {item.icon}
@@ -61,7 +79,7 @@ function Services() {
                 {item.title}
               </h3>
 
-              <p className="text-gray-400">
+              <p className="text-gray-300 leading-7">
                 {item.desc}
               </p>
 

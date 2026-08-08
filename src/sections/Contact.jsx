@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
+import bgImage from "../assets/images/background.png";
 
 import {
   FaEnvelope,
@@ -38,30 +39,36 @@ function Contact() {
   return (
     <section
       id="contact"
-      className="bg-slate-950 text-white py-24"
+      className="relative py-24 text-white bg-cover bg-center bg-fixed"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+      }}
     >
-      <div className="max-w-7xl mx-auto px-6">
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/80"></div>
+
+      {/* Content */}
+      <div className="relative max-w-7xl mx-auto px-6">
 
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="text-5xl font-bold text-center text-cyan-400 mb-16"
+          className="text-5xl font-bold text-center mb-16"
         >
-          Contact Me
+          <span className="text-cyan-400">Contact</span>{" "}
+          <span className="text-white">Me</span>
         </motion.h2>
 
         <div className="grid md:grid-cols-2 gap-10">
 
           {/* Contact Info */}
-
           <motion.div
             initial={{ opacity: 0, x: -60 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="bg-slate-900 border border-slate-700 rounded-3xl p-8"
+            className="bg-white/5 backdrop-blur-lg border border-cyan-500/20 rounded-3xl p-8 hover:border-cyan-400 hover:bg-white/10 transition-all duration-300"
           >
-
             <h3 className="text-3xl font-semibold mb-8">
               Let's Connect 🚀
             </h3>
@@ -91,7 +98,6 @@ function Contact() {
 
               <div className="flex items-center gap-4">
                 <FaGithub className="text-cyan-400 text-2xl" />
-
                 <a
                   href="https://github.com/AnshuPali276"
                   target="_blank"
@@ -100,13 +106,10 @@ function Contact() {
                 >
                   github.com/AnshuPali276
                 </a>
-
               </div>
 
               <div className="flex items-center gap-4">
-
                 <FaLinkedin className="text-cyan-400 text-2xl" />
-
                 <a
                   href="https://www.linkedin.com/in/anshu-pali-24b933225/"
                   target="_blank"
@@ -115,20 +118,17 @@ function Contact() {
                 >
                   linkedin.com/in/anshu-pali-24b933225
                 </a>
-
               </div>
 
             </div>
-
           </motion.div>
 
           {/* Contact Form */}
-
           <motion.div
             initial={{ opacity: 0, x: 60 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="bg-slate-900 border border-slate-700 rounded-3xl p-8"
+            className="bg-white/5 backdrop-blur-lg border border-cyan-500/20 rounded-3xl p-8 hover:border-cyan-400 hover:bg-white/10 transition-all duration-300"
           >
 
             <h3 className="text-3xl font-semibold mb-8">
@@ -146,7 +146,7 @@ function Contact() {
                 name="name"
                 placeholder="Your Name"
                 required
-                className="w-full bg-slate-800 rounded-xl p-4 outline-none border border-slate-700 focus:border-cyan-400"
+                className="w-full bg-slate-900/70 rounded-xl p-4 outline-none border border-slate-700 focus:border-cyan-400"
               />
 
               <input
@@ -154,7 +154,7 @@ function Contact() {
                 name="email"
                 placeholder="Your Email"
                 required
-                className="w-full bg-slate-800 rounded-xl p-4 outline-none border border-slate-700 focus:border-cyan-400"
+                className="w-full bg-slate-900/70 rounded-xl p-4 outline-none border border-slate-700 focus:border-cyan-400"
               />
 
               <textarea
@@ -162,7 +162,7 @@ function Contact() {
                 name="message"
                 placeholder="Write your message..."
                 required
-                className="w-full bg-slate-800 rounded-xl p-4 outline-none border border-slate-700 focus:border-cyan-400"
+                className="w-full bg-slate-900/70 rounded-xl p-4 outline-none border border-slate-700 focus:border-cyan-400"
               ></textarea>
 
               <button

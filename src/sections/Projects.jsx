@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
+import bgImage from "../assets/images/background.png";
 
 function Projects() {
   const projects = [
     {
       title: "AI Based Cyber Threat Detection System",
-      status: "🚧 Ongoing",
-      progress: 80,
+      status: "✅ Completed",
+      progress: 100,
       description:
         "An AI-powered cybersecurity project that monitors system activities in real time, detects suspicious behaviour using Machine Learning, and provides alerts through an interactive dashboard.",
       tech: [
@@ -33,40 +34,48 @@ function Projects() {
   return (
     <section
       id="projects"
-      className="min-h-screen bg-slate-900 text-white py-20"
+      className="relative py-24 text-white bg-cover bg-center bg-fixed"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+      }}
     >
-      <div className="max-w-7xl mx-auto px-6">
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/80"></div>
 
+      {/* Content */}
+      <div className="relative max-w-7xl mx-auto px-6">
+
+        {/* Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="text-5xl font-bold text-center text-cyan-400 mb-16"
+          className="text-5xl font-bold text-center mb-16"
         >
-          My Projects
+          <span className="text-cyan-400">My</span>{" "}
+          <span className="text-white">Projects</span>
         </motion.h2>
 
         <div className="grid md:grid-cols-2 gap-8">
 
           {projects.map((project, index) => (
-
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               whileHover={{
-                scale: 1.03,
-                boxShadow: "0 0 25px rgba(34,211,238,0.4)",
+                scale: 1.04,
+                y: -8,
+                boxShadow: "0 0 35px rgba(34,211,238,0.35)",
               }}
               transition={{ duration: 0.4 }}
-              className="bg-slate-800 rounded-2xl border border-slate-700 p-8"
+              className="bg-white/5 backdrop-blur-lg border border-cyan-500/20 rounded-3xl p-8 hover:border-cyan-400 hover:bg-white/10 transition-all duration-300"
             >
-
               <h3 className="text-2xl font-bold mb-3">
                 {project.title}
               </h3>
 
-              <span className="inline-block bg-cyan-600 px-4 py-1 rounded-full text-sm mb-5">
+              <span className="inline-block bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 px-4 py-1 rounded-full text-sm mb-5">
                 {project.status}
               </span>
 
@@ -74,51 +83,44 @@ function Projects() {
                 {project.description}
               </p>
 
+              {/* Progress */}
               <div className="mb-6">
-
                 <div className="flex justify-between mb-2">
                   <span>Project Progress</span>
                   <span>{project.progress}%</span>
                 </div>
 
-                <div className="w-full bg-slate-700 rounded-full h-3">
-
+                <div className="w-full bg-slate-700/60 rounded-full h-3">
                   <div
-                    className="bg-cyan-400 h-3 rounded-full"
+                    className="bg-cyan-400 h-3 rounded-full transition-all duration-700"
                     style={{ width: `${project.progress}%` }}
                   ></div>
-
                 </div>
-
               </div>
 
+              {/* Technologies */}
               <div className="flex flex-wrap gap-3 mb-8">
-
                 {project.tech.map((skill, i) => (
-
                   <span
                     key={i}
-                    className="bg-slate-700 px-3 py-1 rounded-full text-sm"
+                    className="bg-cyan-500/10 border border-cyan-500/20 px-3 py-1 rounded-full text-sm text-cyan-300"
                   >
                     {skill}
                   </span>
-
                 ))}
-
               </div>
 
+              {/* GitHub Button */}
               <a
                 href={project.github}
                 target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-600 px-5 py-3 rounded-xl transition"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-600 px-5 py-3 rounded-xl transition font-semibold"
               >
                 <FaGithub />
                 View on GitHub
               </a>
-
             </motion.div>
-
           ))}
 
         </div>
