@@ -5,16 +5,17 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 w-full backdrop-blur-lg bg-slate-900/70 border-b border-slate-700 z-50">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <nav className="fixed top-0 left-0 w-full max-w-full overflow-hidden backdrop-blur-lg bg-slate-900/70 border-b border-slate-700 z-50">
+      
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
 
         {/* Logo */}
-        <h1 className="text-3xl font-bold text-cyan-400 cursor-pointer">
+        <h1 className="text-2xl sm:text-3xl font-bold text-cyan-400 cursor-pointer whitespace-nowrap">
           Anshu<span className="text-white"> Pali</span>
         </h1>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-8 text-white font-medium">
+        <ul className="hidden md:flex gap-6 lg:gap-8 text-white font-medium">
 
           <li>
             <a href="#home" className="hover:text-cyan-400 transition">
@@ -41,7 +42,10 @@ function Navbar() {
           </li>
 
           <li>
-            <a href="#certifications" className="hover:text-cyan-400 transition">
+            <a
+              href="#certifications"
+              className="hover:text-cyan-400 transition"
+            >
               Certifications
             </a>
           </li>
@@ -62,7 +66,9 @@ function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-white text-2xl"
+          type="button"
+          aria-label="Toggle menu"
+          className="md:hidden flex-shrink-0 text-white text-2xl p-2"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? <FaTimes /> : <FaBars />}
@@ -72,7 +78,7 @@ function Navbar() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-slate-900 border-t border-slate-700 px-6 py-5 space-y-4 text-white">
+        <div className="md:hidden w-full bg-slate-900 border-t border-slate-700 px-6 py-5 space-y-4 text-white">
 
           <a
             href="#home"
