@@ -18,7 +18,16 @@ function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen bg-cover bg-center bg-no-repeat overflow-hidden"
+      className="
+        relative
+        w-full
+        max-w-full
+        min-h-screen
+        bg-cover
+        bg-center
+        bg-no-repeat
+        overflow-x-hidden
+      "
       style={{
         backgroundImage: `url(${heroBg})`,
       }}
@@ -29,23 +38,32 @@ function Hero() {
       {/* Content */}
       <div
         className="
-          relative z-10
-          max-w-7xl mx-auto
-          px-4 sm:px-6
-          py-20 md:py-0
+          relative
+          z-10
+          w-full
+          max-w-7xl
+          mx-auto
+          px-4
+          sm:px-6
+          py-24
+          md:py-0
           min-h-screen
-          grid md:grid-cols-2
-          gap-12 md:gap-16
+          grid
+          grid-cols-1
+          md:grid-cols-2
+          gap-12
+          md:gap-16
           items-center
+          overflow-x-hidden
         "
       >
-
         {/* ================= LEFT CONTENT ================= */}
+
         <motion.div
           initial={{ opacity: 0, x: -60 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="w-full min-w-0"
+          className="w-full min-w-0 max-w-full overflow-hidden"
         >
           {/* Hello */}
           <p className="text-cyan-400 text-base sm:text-lg mb-3">
@@ -53,7 +71,16 @@ function Hero() {
           </p>
 
           {/* Name */}
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white break-words">
+          <h1
+            className="
+              text-4xl
+              sm:text-5xl
+              md:text-7xl
+              font-bold
+              text-white
+              break-words
+            "
+          >
             Anshu <span className="text-cyan-400">Pali</span>
           </h1>
 
@@ -61,11 +88,16 @@ function Hero() {
           <div
             className="
               mt-5
-              text-xl sm:text-2xl md:text-4xl
-              font-semibold
+              w-full
+              max-w-full
               min-h-[70px]
+              text-xl
+              sm:text-2xl
+              md:text-4xl
+              font-semibold
               text-white
               break-words
+              overflow-hidden
             "
           >
             <TypeAnimation
@@ -81,7 +113,7 @@ function Hero() {
                 "AI & ML Learner",
                 2000,
               ]}
-              wrapper="span"
+              wrapper="div"
               speed={50}
               repeat={Infinity}
             />
@@ -90,11 +122,16 @@ function Hero() {
           {/* Description */}
           <p
             className="
-              mt-5 sm:mt-6
-              text-gray-300
-              leading-7 sm:leading-8
-              text-base sm:text-lg
+              mt-5
+              sm:mt-6
+              w-full
               max-w-2xl
+              text-gray-300
+              leading-7
+              sm:leading-8
+              text-base
+              sm:text-lg
+              break-words
             "
           >
             Passionate Computer Science Engineering student with a strong
@@ -105,27 +142,34 @@ function Hero() {
           </p>
 
           {/* ================= BUTTONS ================= */}
+
           <div
             className="
-              mt-8 sm:mt-10
-              flex flex-wrap
+              mt-8
+              sm:mt-10
+              w-full
+              max-w-full
+              flex
+              flex-wrap
               items-center
-              gap-3 sm:gap-4
+              gap-3
+              sm:gap-4
             "
           >
             {/* View Projects */}
             <a
               href="#projects"
               className="
-                px-5 sm:px-6
+                px-5
+                sm:px-6
                 py-3
                 bg-cyan-500
                 rounded-xl
                 hover:bg-cyan-600
                 transition
                 font-semibold
-                text-sm sm:text-base
-                whitespace-nowrap
+                text-sm
+                sm:text-base
               "
             >
               📂 View Projects
@@ -137,17 +181,19 @@ function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               className="
-                px-5 sm:px-6
+                px-5
+                sm:px-6
                 py-3
-                border border-green-400
+                border
+                border-green-400
                 text-green-400
                 rounded-xl
                 hover:bg-green-400
                 hover:text-black
                 transition
                 font-semibold
-                text-sm sm:text-base
-                whitespace-nowrap
+                text-sm
+                sm:text-base
               "
             >
               👁 View Resume
@@ -158,17 +204,19 @@ function Hero() {
               href={resume}
               download="MY(Anshu_Pali)_Resume.pdf"
               className="
-                px-5 sm:px-6
+                px-5
+                sm:px-6
                 py-3
-                border border-cyan-400
+                border
+                border-cyan-400
                 text-cyan-400
                 rounded-xl
                 hover:bg-cyan-400
                 hover:text-black
                 transition
                 font-semibold
-                text-sm sm:text-base
-                whitespace-nowrap
+                text-sm
+                sm:text-base
               "
             >
               ⬇ Download Resume
@@ -176,11 +224,15 @@ function Hero() {
           </div>
 
           {/* ================= SOCIAL ICONS ================= */}
+
           <div
             className="
-              flex items-center
-              gap-5 sm:gap-6
-              mt-7 sm:mt-8
+              flex
+              items-center
+              gap-5
+              sm:gap-6
+              mt-7
+              sm:mt-8
               text-3xl
               text-white
             "
@@ -190,7 +242,11 @@ function Hero() {
               href="https://github.com/AnshuPali276"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-cyan-400 hover:scale-110 transition"
+              className="
+                hover:text-cyan-400
+                hover:scale-110
+                transition
+              "
             >
               <FaGithub />
             </a>
@@ -200,7 +256,11 @@ function Hero() {
               href="https://linkedin.com/in/anshu-pali-24b933225/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-cyan-400 hover:scale-110 transition"
+              className="
+                hover:text-cyan-400
+                hover:scale-110
+                transition
+              "
             >
               <FaLinkedin />
             </a>
@@ -208,7 +268,11 @@ function Hero() {
             {/* Email */}
             <a
               href="mailto:anshupali0676@gmail.com"
-              className="hover:text-cyan-400 hover:scale-110 transition"
+              className="
+                hover:text-cyan-400
+                hover:scale-110
+                transition
+              "
             >
               <FaEnvelope />
             </a>
@@ -216,6 +280,7 @@ function Hero() {
         </motion.div>
 
         {/* ================= RIGHT PROFILE ================= */}
+
         <motion.div
           initial={{ opacity: 0, x: 60 }}
           animate={{ opacity: 1, x: 0 }}
@@ -227,16 +292,22 @@ function Hero() {
             items-center
             w-full
             min-w-0
-            mt-8 md:mt-0
+            max-w-full
+            mt-8
+            md:mt-0
+            px-4
           "
         >
           {/* Glow */}
           <div
             className="
               absolute
-              w-56 h-56
-              sm:w-72 sm:h-72
-              md:w-80 md:h-80
+              w-56
+              h-56
+              sm:w-72
+              sm:h-72
+              md:w-80
+              md:h-80
               bg-cyan-500
               rounded-full
               blur-3xl
@@ -250,9 +321,12 @@ function Hero() {
             alt="Anshu Pali"
             className="
               relative
-              w-56 h-56
-              sm:w-72 sm:h-72
-              md:w-80 md:h-80
+              w-56
+              h-56
+              sm:w-72
+              sm:h-72
+              md:w-80
+              md:h-80
               max-w-full
               rounded-full
               object-cover
@@ -271,7 +345,8 @@ function Hero() {
               sm:left-[15%]
               md:left-8
               text-yellow-400
-              text-4xl sm:text-5xl
+              text-4xl
+              sm:text-5xl
               animate-bounce
             "
           />
@@ -285,7 +360,8 @@ function Hero() {
               sm:right-[15%]
               md:right-5
               text-green-500
-              text-4xl sm:text-5xl
+              text-4xl
+              sm:text-5xl
               animate-bounce
             "
           />
@@ -299,7 +375,8 @@ function Hero() {
               sm:right-[10%]
               md:right-0
               text-cyan-400
-              text-4xl sm:text-5xl
+              text-4xl
+              sm:text-5xl
               animate-spin
             "
           />
@@ -313,7 +390,8 @@ function Hero() {
               sm:left-[10%]
               md:left-0
               text-orange-500
-              text-4xl sm:text-5xl
+              text-4xl
+              sm:text-5xl
               animate-bounce
             "
           />
@@ -327,12 +405,12 @@ function Hero() {
               sm:right-[30%]
               md:right-24
               text-blue-500
-              text-4xl sm:text-5xl
+              text-4xl
+              sm:text-5xl
               animate-bounce
             "
           />
         </motion.div>
-
       </div>
     </section>
   );
